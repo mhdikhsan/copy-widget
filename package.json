@@ -5,15 +5,19 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test": "cypress open-ct"
   },
   "dependencies": {
     "preact": "^10.5.15"
   },
   "devDependencies": {
+    "@cypress/react": "^5.12.4",
+    "@cypress/vite-dev-server": "^2.2.2",
     "@preact/preset-vite": "^2.1.5",
     "@tailwindcss/forms": "^0.4.0",
     "autoprefixer": "^10.4.2",
+    "cypress": "^9.5.2",
     "postcss": "^8.4.6",
     "tailwindcss": "^3.0.23",
     "vite": "^2.8.0"
