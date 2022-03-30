@@ -9,14 +9,53 @@ export function Form() {
       setIsLoading(true);
       const formData = new FormData(event.target);
       const objData = Object.fromEntries(formData.entries());
-      await ((ms) => new Promise((resolve) => setTimeout(resolve, ms)))(500);
       console.log(objData);
+      let descriptor = "These are property description. ";
+      Object.keys(objData).forEach((key) => {
+        let sentence = "";
+        switch (key) {
+          case "additional_info":
+            sentence = "This is an additional info: " + objData[key] + ". ";
+            break;
+          case "address":
+            sentence = "It is located in: " + objData[key] + ". ";
+            break;
+          case "bathroom":
+            sentence = "It has " + objData[key] + " bathroom. ";
+            break;
+          case "bedroom":
+            sentence = "It has " + objData[key] + " bedroom. ";
+            break;
+          case "building_area":
+            sentence =
+              "It has " + objData[key] + " square meter building area. ";
+            break;
+          case "electrical_power":
+            sentence = "It has " + objData[key] + " Watt electrical power. ";
+            break;
+          case "floor":
+            sentence = "It has " + objData[key] + " floor. ";
+            break;
+          case "land_area":
+            sentence = "It has " + objData[key] + " square meter land area. ";
+            break;
+          default:
+            break;
+        }
+        descriptor += sentence;
+      });
+      let res = await fetch("https://gpt-3-api.herokuapp.com/generate", {
+        method: "PATCH",
+        body: JSON.stringify({
+          descriptor,
+        }),
+        headers: { "Content-Type": "application/json" },
+      });
+      res = await res.json();
+      setResult(res.choices[0].text);
     } catch (error) {
     } finally {
       setIsLoading(false);
-      setResult(
-        `Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.  The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.`
-      );
     }
   }, []);
 
