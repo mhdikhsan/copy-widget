@@ -6,7 +6,8 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "test": "cypress open-ct"
+    "test": "cypress open-ct",
+    "deploy": "aws s3 sync dist s3://widget.mikoding.com --profile mikoding"
   },
   "dependencies": {
     "preact": "^10.5.15"

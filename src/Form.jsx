@@ -44,7 +44,7 @@ export function Form() {
         }
         descriptor += sentence;
       });
-      let res = await fetch("https://gpt-3-api.herokuapp.com/generate", {
+      let res = await fetch("https://gpt-3-api.herokuapp.com/generate/", {
         method: "PATCH",
         body: JSON.stringify({
           descriptor,
