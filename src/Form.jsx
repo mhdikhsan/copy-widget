@@ -1,6 +1,6 @@
 import { useState, useCallback } from "preact/hooks";
 
-export function Form() {
+export function Form({ token }) {
   const [isLoading, setIsLoading] = useState(false);
   const [result, setResult] = useState("");
   const handleSubmit = useCallback(async (event) => {
@@ -9,7 +9,6 @@ export function Form() {
       setIsLoading(true);
       const formData = new FormData(event.target);
       const objData = Object.fromEntries(formData.entries());
-      console.log(objData);
       let descriptor = "These are property description. ";
       Object.keys(objData).forEach((key) => {
         let sentence = "";
@@ -49,7 +48,7 @@ export function Form() {
         body: JSON.stringify({
           descriptor,
         }),
-        headers: { "Content-Type": "application/json" },
+        headers: { "Content-Type": "application/json", Authorization: token },
       });
       res = await res.json();
       setResult(res.choices[0].text);
