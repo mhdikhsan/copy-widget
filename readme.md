@@ -13,8 +13,14 @@ _Clone_ atau _download_ repo ini dan pastikan pnpm (nodejs package manager) tela
 
 ## Mode Produksi
 
-Pastikan 3 file asset widget ini telah Anda load, dengan rincian 2 js dan 1 css, baik langsung melalui CDN ataupun _self-hosted_. Buat sebuah element html dengan id copy-widget. Contoh :
+1. Pastikan 3 file asset widget ini telah Anda load, dengan rincian 2 js dan 1 css, baik melalui CDN ataupun _self-hosted_. Contoh :
 
-> <div id='copy-widget'></div>
+> <script type="module" crossorigin src="https://widget.mikoding.com/assets/index.5418c707.js"></script>
+> <link rel="modulepreload" href="https://widget.mikoding.com/assets/vendor.0a89d859.js"> 
+> <link rel="stylesheet" href="https://widget.mikoding.com/assets/index.fd430c9b.css">
 
-Widget akan mendeteksi element secara otomatis dan menampilkan form.
+2.  Buat sebuah elemen html dengan id copy-widget. Contoh :
+
+> <div id="copy-widget" data-token="example-token" style="padding: 2rem;"></div>
+
+3. Widget akan mendeteksi elemen secara otomatis dan menampilkan form.
