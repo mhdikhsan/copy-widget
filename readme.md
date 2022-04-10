@@ -11,6 +11,10 @@ _Clone_ atau _download_ repo ini dan pastikan pnpm (nodejs package manager) tela
 3.  Setelah layanan yang Anda kembangkan telah siap jalankan `pnpm build` untuk mengkompilasi widget ini, widget siap terdistribusi akan muncul di folder **dist**.
 4.  Simpan dan sajikan 3 file dalam folder **dist** (tepatnya pada subfolder **assets**) ke dalam layanan CDN.
 
+## Mode Deployment
+
+Gunakan dockerfile pada root folder atau deploy folder dist hasil build ke static file server manapun (misal github pages atau AWS S3).
+
 ## Mode Produksi
 
 1. Pastikan 3 file asset widget ini telah Anda load, dengan rincian 2 js dan 1 css, baik melalui CDN ataupun _self-hosted_. Contoh :
