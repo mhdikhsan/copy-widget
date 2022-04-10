@@ -1,5 +1,5 @@
 import { mount } from "@cypress/react";
-import { Form } from "./Form";
+import { Form } from "./main";
 
 it("renders generate button", () => {
   mount(<Form />);

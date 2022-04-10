@@ -1,7 +1,17 @@
-import { defineConfig } from 'vite'
-import preact from '@preact/preset-vite'
+import { defineConfig } from "vite";
+import preact from "@preact/preset-vite";
 
-// https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [preact()]
-})
+  plugins: [preact()],
+  build: {
+    rollupOptions: {
+      inlineDynamicImports: true,
+      output: {
+        entryFileNames: `assets/[name].js`,
+        chunkFileNames: `assets/[name].js`,
+        assetFileNames: `assets/[name].[ext]`,
+        manualChunks: () => "everything.js",
+      },
+    },
+  },
+});
