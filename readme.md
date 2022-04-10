@@ -19,11 +19,19 @@ Gunakan dockerfile pada root folder atau deploy folder dist hasil build ke stati
 
 1. Pastikan 2 file asset widget telah Anda load, dengan rincian 1 file js dan 1 file css, baik melalui CDN ataupun _self-hosted_. Contoh :
 
-> <script type="module" crossorigin src="https://widget.mikoding.com/assets/index.js"></script>
-> <link rel="stylesheet" href="https://widget.mikoding.com/assets/index.css">
+```html
+<script
+  type="module"
+  crossorigin
+  src="https://widget.mikoding.com/assets/index.js"
+></script>
+<link rel="stylesheet" href="https://widget.mikoding.com/assets/index.css" />
+```
 
 2.  Buat sebuah elemen html dengan id copy-widget. Contoh :
 
-> <div id="copy-widget" data-key="example-key" style="padding: 2rem;"></div>
+```html
+<div id="copy-widget" data-key="example-key" style="padding: 2rem;"></div>
+```
 
 3. Widget akan mendeteksi elemen secara otomatis dan menampilkan form.
