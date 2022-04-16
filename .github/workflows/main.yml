@@ -6,6 +6,15 @@ on:
       - main
 
 jobs:
+  cypress-run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      # Install NPM dependencies, cache them correctly
+      # and run all Cypress tests
+      - name: Cypress run test
+        uses: cypress-io/github-action@v2
   build:
     runs-on: ubuntu-latest
     steps:
