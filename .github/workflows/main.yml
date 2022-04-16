@@ -6,10 +6,12 @@ on:
       - main
 
 jobs:
-  build:
+  test-and-build:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
+    - name: Cypress Test Running
+      run: pnpm test
     - name: Login to Heroku Container registry
       env: 
         HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
@@ -22,8 +24,3 @@ jobs:
       env:
         HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
       run: heroku container:release -a ${{ secrets.HEROKU_APP_NAME }} web 
-  cypress-run:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Cypress run
-        uses: cypress-io/github-action@v2
