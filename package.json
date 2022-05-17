@@ -25,7 +25,11 @@
   },
   "pnpm": {
     "peerDependencyRules": {
-      "ignoreMissing": ["rollup","webpack","types/lodash-es"]
+      "ignoreMissing": [
+        "@babel/core",
+        "react-dom",
+        "react"
+      ]
     }
   }
 }
