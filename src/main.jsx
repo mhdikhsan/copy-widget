@@ -147,7 +147,7 @@ export function Form({ key }) {
               htmlFor='electrical_power'
               class='block text-sm font-medium text-gray-700 capitalize'
             >
-              Electrical Power
+              Ukuran Listrik
             </label>
             <div class='flex mt-1 rounded-md shadow-sm'>
               <input
