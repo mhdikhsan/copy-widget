@@ -279,7 +279,7 @@ export function Form({ key }) {
               ></path>
             </svg>
           ) : (
-            "Generate"
+            "Olah"
           )}
         </button>
       </footer>
